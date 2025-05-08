@@ -16,4 +16,7 @@ export class User {
 
   @Column({ default: true })
   isActive: boolean;
+
+  @Column({ nullable: true })
+  creator_id: number;
 }
