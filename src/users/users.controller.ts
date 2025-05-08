@@ -20,6 +20,11 @@ export class UsersController {
     return this.userService.findAll();
   }
 
+  @Get('getTopCreator')
+  getTopCreator(): Promise<Partial<User>[]> {
+    return this.userService.getTopCreator();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string): Promise<User> {
     return this.userService.findOne(+id);
