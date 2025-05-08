@@ -28,26 +28,21 @@ export class UsersService {
       ORDER BY post_count DESC
       LIMIT 2
     )
+
     /*
     select
-    creator_id, post_count
-    from top_posters;
+      creator_id, post_count
+    from 
+      top_posters;
     */
     
     SELECT
-      ROUND((SUM(top_posters.post_count) * 100 /
+      ROUND((SUM(top_posters.post_count) * 100 / 
         (SELECT COUNT(*) FROM public."user")), 2) AS top_2_posters_percentage
     FROM top_posters;
     
   `);
-    // select
-    // creator_id, post_count
-    // from top_posters;
 
-    // SELECT
-    //   ROUND((SUM(top_posters.post_count) * 100 /
-    //     (SELECT COUNT(*) FROM public."user")), 2) AS top_2_posters_percentage
-    // FROM top_posters;
     return result;
   }
 
