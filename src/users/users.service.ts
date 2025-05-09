@@ -23,7 +23,7 @@ export class UsersService {
       SELECT 
         creator_id,
         COUNT(*) AS post_count
-      FROM public."user"
+      FROM public."users"
       GROUP BY creator_id
       ORDER BY post_count DESC
       LIMIT 2
@@ -38,7 +38,7 @@ export class UsersService {
     
     SELECT
       ROUND((SUM(top_posters.post_count) * 100 / 
-        (SELECT COUNT(*) FROM public."user")), 2) AS top_2_posters_percentage
+        (SELECT COUNT(*) FROM public."users")), 2) AS top_2_posters_percentage
     FROM top_posters;
     
   `);
